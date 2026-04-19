@@ -1,6 +1,6 @@
 ﻿namespace EntityComponentSystem.Manager;
 
-internal class EntityManager
+public class EntityManager
 {
     private uint _nextId = 0;
     private readonly Queue<uint> _recycled = new();
