@@ -1,9 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>EntityComponentSystem</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>R0binSmit</Authors>
+		<Description>A lightweight ECS class library for .NET, designed for MonoGame projects.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/R0binSmit/EntityComponentSystem</RepositoryUrl>
+	</PropertyGroup>
 
 </Project>
