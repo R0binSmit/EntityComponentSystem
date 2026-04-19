@@ -19,7 +19,7 @@ public class ComponentManager
 
     public void Add<T>(Entity entity, T component) where T : IComponent => GetStore<T>()[entity.Id] = component;
     public void Remove<T>(Entity entity) where T : IComponent => GetStore<T>().Remove(entity.Id);
-    public void TryGet<T>(Entity entity, out T component) where T : IComponent => GetStore<T>().TryGetValue(entity.Id, value: out component);
+    public void TryGet<T>(Entity entity, out T? component) where T : IComponent => GetStore<T>().TryGetValue(entity.Id, out component);
     public T Get<T>(Entity entity) where T : IComponent => GetStore<T>()[entity.Id];
     public bool Has<T>(Entity entity) where T : IComponent => GetStore<T>().ContainsKey(entity.Id);
     public IEnumerable<(Entity, T)> GetAll<T>() where T : IComponent => GetStore<T>().Select(kv => (new Entity(kv.Key), kv.Value));
