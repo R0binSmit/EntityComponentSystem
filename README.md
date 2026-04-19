@@ -22,10 +22,19 @@ This library provides a minimal ECS architecture that cleanly separates **data**
 
 ### Installation
 
-Download the latest release from [GitHub Releases](https://github.com/R0binSmit/EntityComponentSystem/releases) and add a project reference:
+#### 1. Add as Submodule
+
+In the root directory of your project:
 
 ```bash
-dotnet add reference path/to/EntityComponentSystem.csproj
+git submodule add https://github.com/R0binSmit/EntityComponentSystem libs/EntityComponentSystem
+git submodule update --init --recursive
+```
+
+### 2. Add to your Solution
+
+```bash
+dotnet sln add libs/EntityComponentSystem/src/EntityComponentSystem/EntityComponentSystem.csproj
 ```
 
 ## Usage
