@@ -1,6 +1,8 @@
-﻿namespace EntityComponentSystem.Manager;
+﻿using EntityComponentSystem.Interfaces;
 
-public class EntityManager
+namespace EntityComponentSystem.Manager;
+
+public class EntityManager : IEntityManager
 {
     private uint _nextId = 0;
     private readonly Queue<uint> _recycled = new();
@@ -20,5 +22,9 @@ public class EntityManager
     }
 
     public bool IsActive(Entity entity) => _activeEntities.Contains(entity.Id);
-    public IEnumerable<Entity> All => _activeEntities.Select(id => new Entity(id));
+
+    IEnumerable<Entity> IEntityManager.All()
+    {
+        return _activeEntities.Select(id => new Entity(id));
+    }
 }
