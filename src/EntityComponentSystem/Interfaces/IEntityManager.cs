@@ -1,9 +1,13 @@
-﻿namespace EntityComponentSystem.Interfaces;
+namespace EntityComponentSystem.Interfaces;
 
 public interface IEntityManager
 {
-    public Entity Create();
-    public void Destroy(Entity entity);
-    public bool IsActive(Entity entity);
-    public IEnumerable<Entity> All();
+    Entity Create();
+    void Destroy(Entity entity);
+    bool IsActive(Entity entity);
+    IEnumerable<Entity> All();
+    bool TryGetByIndex(uint index, out Entity entity);
+    void Disable(Entity entity);
+    void Enable(Entity entity);
+    bool IsEnabled(Entity entity);
 }

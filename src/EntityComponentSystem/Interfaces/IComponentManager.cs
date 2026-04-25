@@ -1,13 +1,17 @@
-﻿namespace EntityComponentSystem.Interfaces;
+namespace EntityComponentSystem.Interfaces;
 
 public interface IComponentManager
 {
-    public void Add<T>(Entity entity, T component) where T : IComponent;
-    public void Set<T>(Entity entity, T component) where T : IComponent;
-    public void Remove<T>(Entity entity) where T : IComponent;
-    public bool TryGet<T>(Entity entity, out T? component) where T : IComponent;
-    public T Get<T>(Entity entity) where T : IComponent;
-    public bool Has<T>(Entity entity) where T : IComponent;
-    public Dictionary<uint, T> GetAll<T>() where T : IComponent;
-    public void RemoveAll(Entity entity);
+    void Add<T>(Entity entity, T component) where T : IComponent;
+    void Set<T>(Entity entity, T component) where T : IComponent;
+    void Remove<T>(Entity entity) where T : IComponent;
+    bool TryRemove<T>(Entity entity) where T : IComponent;
+    bool TryGet<T>(Entity entity, out T? component) where T : IComponent;
+    T Get<T>(Entity entity) where T : IComponent;
+    bool Has<T>(Entity entity) where T : IComponent;
+    IReadOnlyDictionary<uint, T> GetAll<T>() where T : IComponent;
+    void RemoveAll(Entity entity);
+    IEnumerable<Type> GetComponentTypes(Entity entity);
+    QueryBuilder Query();
+    int ComponentVersion { get; }
 }
